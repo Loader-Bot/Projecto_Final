@@ -7,7 +7,7 @@ def saludo(request):
 def segunda_vista(request):
     return HttpResponse('Trabajo Preliminar')
 
-def Template(request):
+def template(request):
 
     mihtml = open(r'C:\Users\ggz99\Python\Django2\Tercera_Preentrega\Projecto1\templates\template1.html')
 
