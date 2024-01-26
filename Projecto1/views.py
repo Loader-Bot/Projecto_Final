@@ -1,5 +1,6 @@
 from django.http import HttpResponse
-from django.template import Template, Context
+from django.shortcuts import render
+
 
 def saludo(request):
     return HttpResponse('Primera Vista')
@@ -9,15 +10,16 @@ def segunda_vista(request):
 
 def template(request):
 
-    mihtml = open(r'C:\Users\ggz99\Python\Django2\Tercera_Preentrega\Projecto1\templates\template1.html')
+    contexto = {
+        "nombre": "German",
+        "apellido": "Gonzalez",
+        "edad": 33,
+        "cursos": ["Python","Ingles",'HTML' ]
+    }
 
-    plantilla = Template(mihtml.read())
-    
-    mihtml.close()
+    return render(request,'template1.html',contexto)
+  
+def index(request):
+    return render(request, 'index.html')
 
-    miContexto =  Context()
-    
-    documento = plantilla.render(miContexto)
-
-    return HttpResponse(documento)
-
+  
